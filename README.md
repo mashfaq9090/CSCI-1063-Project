@@ -1,23 +1,34 @@
-#CSCI-1063-Project Description
-This project's goal is to make a schedule tracking system for users to manage their schedules for important dates, deadlines, and daily activities. The project will allow users to build their schedule using a terminal user interface.
+# CSCI-1063 — Project Description
 
+The goal of this project is to create a **schedule tracking system** that allows users to manage important dates, deadlines, and daily activities.  
+Users will be able to build and interact with their schedules using a **terminal-based user interface (TUI)**.
 
-Final architecture is undecided.
+The final system architecture is **currently undecided** and will be refined during development.
 
+---
 
-#Tech Stack
-We are using C++ since everyone has experience using it.
-We are using FTXUI library to make the user interface since it is a beginner friendly graphical interface library.
+## Tech Stack
 
+- **Language:** C++  
+  Chosen because all team members have prior experience with it.
 
-#Project Creators
-Mohammad Mahrus Bin Ashfaq
-Krishnath Sirivel
-Alex Hansler
+- **UI Library:** FTXUI  
+  Used to create an interactive terminal user interface. FTXUI is beginner-friendly and well-suited for terminal-based graphical applications.
 
+---
 
-#Stuff to do
-Make header files.
-Finalize project goals.
-Set up interface.
-Make saving system (Maybe include a login as well).
+## Project Creators
+
+- Mohammad Mahrus Bin Ashfaq  
+- Krishnath Sirivel  
+- Alex Hansler  
+
+---
+
+## Tasks / To-Do List
+
+- [ ] Create header files  
+- [ ] Finalize project goals  
+- [ ] Set up the user interface  
+- [ ] Implement a data saving system  
+  - Optional: include a login system
