@@ -32,3 +32,6 @@ The final system architecture is **currently undecided** and will be refined dur
 - [ ] Set up the user interface  
 - [ ] Implement a data saving system  
   - Optional: include a login system
+
+- FInished Lab 2
+
