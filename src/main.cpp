@@ -1,16 +1,34 @@
-#include <ftxui/screen/screen.hpp>
-#include <ftxui/screen/color.hpp>
-#include <ftxui/dom/elements.hpp>
+#include <ftxui/dom/elements.hpp>                    // for static elements 
+#include <ftxui/component/component.hpp>             // for Component, Button, Renderer
+#include <ftxui/component/screen_interactive.hpp>    // for continuous screen loop and refresh function
+#include <string>
+
 
 using namespace ftxui;
+
+
 int main() {
-    auto screen = ftxui::Screen::Create(
-        ftxui::Dimension::Full(),   
-        ftxui::Dimension::Full() 
-    );
 
-    Element document = border(text("Hello, FTXUI!") | bold | color(Color::Green)); // created a bordered responsive screen
+    int counter = 0;
 
-    Render(screen, document); //Render before printing --- VERY IMPORTANT!!!
-    screen.Print(); // Print the screen to the terminal
+    // Define a button that increments the counter when clicked.
+    Component Button_1 = Button("Increment Value", [&] {counter += 1; }, ButtonOption::Animated(Color::Red));
+
+    
+    // Define the main application component that displays the counter and the button.
+    Component app = Renderer(Button_1, [&] {
+        std::string current_s = std::to_string(counter);
+        return vbox({
+            text("Value: "+current_s) | bold | color(Color::Blue),
+            separator(),
+            Button_1->Render()
+        }) | border;
+    });
+
+    
+    // Start the interactive screen loop.
+    ScreenInteractive screen = ScreenInteractive::FitComponent();
+    screen.Loop(app);
+    return 0;
+  
 }
