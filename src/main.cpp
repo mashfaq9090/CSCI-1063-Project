@@ -8,16 +8,35 @@
 
 using namespace ftxui;
 
-
 int main(){
-    int width{0};
-    int height{0};
+    int width{0}; // value x
+    int height{0}; //value y 
 
-    auto app = Renderer([&] {
+    Component menu;
+    int selected;
+    std::vector<std::string> entries;
+
+    entries = {
+        "Note Pad",
+        "Calendar",
+        "To Do",
+    };
+
+    selected = 0;
+
+    menu = Menu(&entries, &selected);
+
+    
+    auto app = Renderer(menu, [&] {
         auto dim = Terminal::Size();
         width = dim.dimx;
         height = dim.dimy;
-        return HeaderLayout(width, height);
+
+        return vbox({
+            HeaderLayout(width, height),
+            MenuView(width, height, menu),
+        });
+
     });
     
     ScreenInteractive screen = ScreenInteractive::FitComponent();

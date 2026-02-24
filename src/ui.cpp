@@ -25,5 +25,11 @@ Element HeaderLayout(int valuex, int valuey){
     });
 }
 
+Element MenuView(int valuex, int valuey, Component& menu){ 
+    return vbox({
+        menu->Render()
+    })|border | size(WIDTH, EQUAL, 0.25 * valuex);
+};
+
 
 
