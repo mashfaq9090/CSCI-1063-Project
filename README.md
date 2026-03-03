@@ -68,6 +68,7 @@ The final system architecture is **currently undecided** and will be refined dur
   - Make sure to have FTXUI libraries installed on your machine. Follow the official guide at -> https://arthursonzogni.github.io/FTXUI/installation.html. The recomened method is to do it manually and build from Source [5th option in the guide]
 
 
+
 - Once FTXUI is installed run the following commands in the projects directory
 
 ```bash
@@ -76,8 +77,14 @@ cd build
 cmake ..
 make
 ```
-- The commands above will create the executable which you can run simply with `./main` in the build folder 
+- The commands above will create the executable which you can run simply with `./ftxui_app` in the build folder 
 
+- ### Test Instructions
+  Include the `test` flag in the executable as follow
+  `./ftxui_app test`
+
+  As of now the test suite covers the following domain: 
+    - `Ascii bound check`
 
 
 

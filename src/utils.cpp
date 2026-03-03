@@ -38,3 +38,27 @@ void getSystemTime(int& hour, int& minute) {
     hour = localTime->tm_hour;
     minute = localTime->tm_min;
 }
+
+void testAsciiFunction(std::string filepath) {
+    std::ifstream file(filepath);
+    std::string line;
+    int max_width = 0;
+    int max_height = 0;
+
+
+    if (file.is_open()) {
+
+        while (std::getline(file, line)) {
+            // Each line from the file becomes a text element
+            if (line.length() > max_width){
+                max_width = line.length();
+            }
+            max_height++;
+        }
+        file.close();
+    } 
+
+    assert(("Test Failed ---- Ascii out of dimension",max_width <= 123 && max_height <= 25));
+
+    std::cout << "Ascii bound Test -------------------- Passed :)" <<std::endl;
+}

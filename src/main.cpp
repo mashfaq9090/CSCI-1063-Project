@@ -8,7 +8,8 @@
 
 using namespace ftxui;
 
-int main(){
+int main(int argc, char* argv[]){
+    if (argc == 1){
     int width{0}; // value x
     int height{0}; //value y 
 
@@ -35,11 +36,17 @@ int main(){
         return vbox({
             HeaderLayout(width, height),
             MenuView(width, height, menu),
+
         });
 
     });
     
-    ScreenInteractive screen = ScreenInteractive::FitComponent();
+    ScreenInteractive screen = ScreenInteractive::Fullscreen();
     screen.Loop(app);
+    std::cout << width << " " << height << std::endl;
+    }
+    else if (std::string(argv[1]) == "test"){
+       testAsciiFunction("../assets/ascii_arts/ascii_1.txt"); 
+    }
     return 0;
 }

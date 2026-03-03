@@ -57,6 +57,8 @@ target_link_libraries(${PROJECT_NAME}
         ftxui::component
 )
 
+
+
 # ──────────────────────────────────────────────────────────────
 # Compiler warnings (safe defaults)
 # ──────────────────────────────────────────────────────────────
@@ -66,5 +68,3 @@ target_compile_options(${PROJECT_NAME}
         -Wextra
         -Wpedantic
 )
-
-
