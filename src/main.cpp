@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
     std::cout << width << " " << height << std::endl;
     }
     else if (std::string(argv[1]) == "test"){
-       testAsciiFunction("../assets/ascii_arts/ascii_1.txt"); 
+       testAsciiFunction("../assets/ascii_arts/ascii_2"); 
     }
     return 0;
 }

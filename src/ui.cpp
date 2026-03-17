@@ -3,7 +3,7 @@
 
 Element HeaderLeft(int valuex, int valuey){
     return hbox({
-        LoadAsciiArt("ascii_1.txt")
+        LoadAsciiArt("assets/ascii_arts/ascii_2")
 
     }) | border | size(WIDTH, EQUAL, 0.7 * valuex) | size(HEIGHT, EQUAL, 0.5 * valuey);
 }

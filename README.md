@@ -86,6 +86,18 @@ make
   As of now the test suite covers the following domain: 
     - `Ascii bound check`
 
+## Docker Containerization 
+The provided docker file can be used to run the app in a containerized environmet
+- ### Requirements
+  - Requires docker engine (follow the official installation guide according to your machine at ----> https://www.docker.com/)
+
+- Once docker engine is pressent follow the instructions bellow: 
+
+```bash
+docker build -t ftxui_app .
+docker run -it ftxui_app
+```
+P.S. Change `ftxui_app` to any container tag you preffer.
 
 
 
