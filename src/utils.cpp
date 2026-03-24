@@ -61,4 +61,4 @@ void testAsciiFunction(std::string filepath) {
     assert(("Test Failed ---- Ascii out of dimension",max_width <= 123 && max_height <= 25));
 
     std::cout << "Ascii bound Test -------------------- Passed :)" <<std::endl;
-}
+} 

@@ -27,22 +27,45 @@ int main(int argc, char* argv[]){
 
     menu = Menu(&entries, &selected);
 
-    
-    auto app = Renderer(menu, [&] {
+    Component input_list = Container::Vertical({});
+    std::vector<std::string> items(5, "");
+    for (size_t i = 0; i < items.size(); ++i) {
+        input_list->Add(Input(&(items[i]), "To-Do " + std::to_string(i)));
+    }
+
+    Component body = Container::Vertical({
+        input_list, 
+        menu,
+    });
+
+    ScreenInteractive screen = ScreenInteractive::Fullscreen();
+
+    auto app = Renderer(body, [&] {
         auto dim = Terminal::Size();
         width = dim.dimx;
         height = dim.dimy;
 
         return vbox({
             HeaderLayout(width, height),
-            MenuView(width, height, menu),
-
+            hbox({  
+                MenuView(width, height, menu),
+                window(text("To-Do List"), ToDoView(width, height, input_list))
+            })
         });
 
     });
+
+
+
+    auto component = CatchEvent(app, [&](Event event) {
+        if (event == Event::Character('q') || event == Event::Escape) {
+            screen.ExitLoopClosure()(); // Note the double parenthesis: it returns a closure, then we call it.
+            return true;
+        }
+        return false;
+    });
     
-    ScreenInteractive screen = ScreenInteractive::Fullscreen();
-    screen.Loop(app);
+    screen.Loop(component);
     std::cout << width << " " << height << std::endl;
     }
     else if (std::string(argv[1]) == "test"){

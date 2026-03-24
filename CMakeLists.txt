@@ -1,14 +1,3 @@
-# cmake_minimum_required(VERSION 3.10)
-# project(CSCI_1063_Project)
-# find_package(ftxui REQUIRED)
-# add_executable(main src/main.cpp)
-# target_link_libraries(main
-#   PRIVATE ftxui::screen
-#   PRIVATE ftxui::dom
-#   PRIVATE ftxui::component
-# )
-
-
 cmake_minimum_required(VERSION 3.16)
 
 project(
@@ -23,6 +12,10 @@ project(
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+
+# --- NEW: Profiling Option ---
+option(ENABLE_GPROF "Enable gprof profiling" OFF)
 
 # ──────────────────────────────────────────────────────────────
 # Dependencies
@@ -68,3 +61,12 @@ target_compile_options(${PROJECT_NAME}
         -Wextra
         -Wpedantic
 )
+
+# --- NEW: Apply gprof flags if enabled ---
+if(ENABLE_GPROF)
+    message(STATUS "Gprof profiling enabled for ${PROJECT_NAME}")
+    target_compile_options(${PROJECT_NAME} PRIVATE -pg)
+    target_link_options(${PROJECT_NAME} PRIVATE -pg)
+endif()
+
+

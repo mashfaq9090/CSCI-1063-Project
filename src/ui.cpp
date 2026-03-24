@@ -3,7 +3,7 @@
 
 Element HeaderLeft(int valuex, int valuey){
     return hbox({
-        LoadAsciiArt("assets/ascii_arts/ascii_2")
+        LoadAsciiArt("../assets/ascii_arts/ascii_2")
 
     }) | border | size(WIDTH, EQUAL, 0.7 * valuex) | size(HEIGHT, EQUAL, 0.5 * valuey);
 }
@@ -29,6 +29,12 @@ Element MenuView(int valuex, int valuey, Component& menu){
     return vbox({
         menu->Render()
     })|border | size(WIDTH, EQUAL, 0.25 * valuex);
+};
+
+Element ToDoView(int valuex, int valuey, Component& todo){ 
+    return vbox({
+        todo->Render()
+    })| vscroll_indicator | frame | border;
 };
 
 

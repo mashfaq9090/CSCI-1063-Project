@@ -11,7 +11,7 @@ using namespace ftxui;
 Element HeaderLeft(int valuex, int valuey);
 Element HeaderRight(int valuex, int valuey);
 Element MenuView(int valuex, int valuey, Component& menu);
-Element TodoView();
+Element ToDoView(int valuex, int valuey, Component& todo);
 Element CalendarView();
 Element MainLayout(int valuex, int valuey);
 Element HeaderLayout(int valuex, int valuey);

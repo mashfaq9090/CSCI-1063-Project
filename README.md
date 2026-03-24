@@ -99,5 +99,21 @@ docker run -it ftxui_app
 ```
 P.S. Change `ftxui_app` to any container tag you preffer.
 
+## Benchmarking 
 
+For our benchmarking and analysis we have used `gprof` which comes pre-installed with the `g++` compiler. To use `gprof` the `-pg` flag must be added while compilation. This outputs a `gmon.out` file. To view it we have to use the `gprof "program_binary" "gmon.out"` and pipe that to a text file viewer. 
+
+### Analysis
+
+For the analysis we are specifically using individual function run time in seconds as our metric. 
+
+Based on our gmon.out file, the bottelneck of our application in the `FTXUI` library itself. The program 
+UpdatePixelStyle and Pixel::operator functions were called in the majority of run time (13.2% combined), which is as expected since FTXUI is spending most of its effort calculating colors and moving "pixels" (characters) around to draw your UI.
+
+In comparison our own function doesn't hold up as much resources since most of them are a derivative of the library functions. That being said following metrics were noatable: 
+
+- LoadAsciiArt --> was called 356 times. The main variable in this function is the size of our Ascii art
+- ScreenInteractive ---> has a cumilative run time of 0.76 seconds. The main variable is the number of times the terminal is being refreshed. 
+
+`we have include our gmon.out file for the current release in the assets folder`
 
