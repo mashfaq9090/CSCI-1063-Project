@@ -22,6 +22,40 @@ Element LoadAsciiArt(std::string filepath) {
     return vbox(std::move(lines));
 }
 
+
+Element LoadAsciiArt_optimized(std::string filepath) {
+    std::ifstream file(filepath);
+    std::string line;
+    Elements lines; // This is a std::vector<Element>
+
+    if (file.is_open()) {
+
+        while (std::getline(file, line)) {
+            // Each line from the file becomes a text element
+            
+            lines.push_back(text(line));
+
+        }
+        file.close();
+    } else {
+        return text("Error: Could not open file.");
+    }
+
+    // Stack them vertically
+    return vbox(std::move(lines));
+}
+
+
+
+
+
+
+
+
+
+
+
+
 void getSystemTime(int& hour, int& minute) {
     // 1. Get the current time point from the system clock
     auto now = std::chrono::system_clock::now();

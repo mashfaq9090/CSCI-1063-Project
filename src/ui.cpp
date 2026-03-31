@@ -1,10 +1,9 @@
 #include "ui/ui.h"
 #include "utils/utils.h"
 
-Element HeaderLeft(int valuex, int valuey){
+Element HeaderLeft(int valuex, int valuey, Element acsii_art){
     return hbox({
-        LoadAsciiArt("../assets/ascii_arts/ascii_2")
-
+        acsii_art
     }) | border | size(WIDTH, EQUAL, 0.7 * valuex) | size(HEIGHT, EQUAL, 0.5 * valuey);
 }
 
@@ -18,9 +17,9 @@ Element HeaderRight(int valuex, int valuey){
     }) | border | size(HEIGHT, EQUAL, 0.5 * valuey);
 }
 
-Element HeaderLayout(int valuex, int valuey){
+Element HeaderLayout(int valuex, int valuey, Element ascii_art){
     return hbox({
-        HeaderLeft(valuex, valuey),
+        HeaderLeft(valuex, valuey, ascii_art),
         HeaderRight(valuex, valuey)
     });
 }

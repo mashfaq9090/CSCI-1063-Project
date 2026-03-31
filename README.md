@@ -117,3 +117,11 @@ In comparison our own function doesn't hold up as much resources since most of t
 
 `we have include our gmon.out file for the current release in the assets folder`
 
+### Optimization 
+
+We have improved our benchmark. Now `LoadAsciiArt` is static and creates the visual assest before the main loop and uses it instead of re-rendering the static art indefinitely in the main loop.
+
+- As per our initial report, `LoadAsciiArt` is being called once instead of 356 times as noted before. 
+
+- We have also optimized our codebase in-terms of readability and modularity, removing extra  DOM tree structure UI components.
+

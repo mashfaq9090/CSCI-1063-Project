@@ -38,6 +38,8 @@ int main(int argc, char* argv[]){
         menu,
     });
 
+    Element art = LoadAsciiArt("../assets/ascii_arts/ascii_2");
+
     ScreenInteractive screen = ScreenInteractive::Fullscreen();
 
     auto app = Renderer(body, [&] {
@@ -46,7 +48,7 @@ int main(int argc, char* argv[]){
         height = dim.dimy;
 
         return vbox({
-            HeaderLayout(width, height),
+            HeaderLayout(width, height, art),
             hbox({  
                 MenuView(width, height, menu),
                 window(text("To-Do List"), ToDoView(width, height, input_list))
