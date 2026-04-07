@@ -27,19 +27,14 @@ The final system architecture is **currently undecided** and will be refined dur
 
 ## Tasks / To-Do List
 
-- [ ] Create header files  
-- [ ] Finalize project goals
-- [ ] Get used to the API 
-- [ ] Finalize the homepage interface
-- [✔] finalize project design
+- [ ] Create Calendar View
+- [ ] Connect with internet
+- [ ] Add Email funtionality
 
 ---
 
 ## Known Limitations
-- [ ] UI has not been properly set up
-- [ ] Saving data and writing data has not been implemented
-- [ ] Header files have not been utilized 
-- [ ] Design assets have not been implemented
+- [ ] Minor glitches when changing window size
 
 ---
 
@@ -47,7 +42,7 @@ The final system architecture is **currently undecided** and will be refined dur
 
 - Project will utilize a graphical interface to allow a user to add their task and deadlines.
 - Project will display a calender using the graphical interface.
-- Project will utilize a json file to save all recorded data.
+- Project will utilize a json/txt file to save all recorded data.
 - Project will utilize a notepad system to allow users to record specific information about their tasks.
 
 ---
@@ -125,3 +120,14 @@ We have improved our benchmark. Now `LoadAsciiArt` is static and creates the vis
 
 - We have also optimized our codebase in-terms of readability and modularity, removing extra  DOM tree structure UI components.
 
+## Reflection
+
+This one a rewarding experience for us working on a modular project. We learned about C++ design patterns, optimizing our code through multiple files, and most importantly learning new C++ library and reading through the source code of the library iteself to better familiarize ourself. 
+
+In terms of new software technologies, this project was our first exposure to virtualization and x-platform technologies like docker, which allowed us to run our application in any environment in any cpu architecture. 
+
+Finaly, we were exposed to industry standards in software developing and benchmarking to iteratively improve our software.
+
+### Future vision
+
+Altough we completed most of our milestones, due to time complexity we were unable to add a funtional TUI calendar to our program. It's definitely something we will be working on in the future. We also have plans to integrate networking capabilities and add email functionality to make our app more holistic. 
